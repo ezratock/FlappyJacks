@@ -6,6 +6,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     static final int WIDTH = 480;
     static final int HEIGHT = 360;
+<<<<<<< HEAD
+=======
+    static final Dimension dimension = new Dimension(WIDTH, HEIGHT);
+>>>>>>> main
     public void run() {
 
     }
