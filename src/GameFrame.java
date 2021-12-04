@@ -2,9 +2,10 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
-    GamePanel panel = new GamePanel();
 
     GameFrame(){
+        System.out.println("made it to construcotr of GameFrame");
+        GamePanel panel = new GamePanel();
         this.add(panel);
         this.setTitle("SUPER ENTICING TITLE");
         this.setResizable(false);
