@@ -6,6 +6,8 @@ public class Pillar extends GameComponent{
     private RectangleComponent upper;
     private int movePixels;
     private int WIDTH;
+    private Color COLOR = Color.PINK;
+
 
     public void setMovePixels(int movePixels) {
         this.movePixels = movePixels;
@@ -16,21 +18,21 @@ public class Pillar extends GameComponent{
         this.movePixels = movePixels;
         if (isReal) {
             int gap = (int) ((Math.random() * HEIGHT) / 5f + (0.2f) * HEIGHT);
-            upper = new RectangleComponent((int)WIDTH, 0, (int)WIDTH / 7, gap); //creates top rectangle
-            lower = new RectangleComponent((int)WIDTH, gap + HEIGHT / 7, (int)WIDTH / 7, HEIGHT - (gap + HEIGHT / 7)); //creates bottom rectangle
+            upper = new RectangleComponent((int)WIDTH, 0, (int)WIDTH / 7, gap, COLOR); //creates top rectangle
+            lower = new RectangleComponent((int)WIDTH, gap + HEIGHT / 7, (int)WIDTH / 7, HEIGHT - (gap + HEIGHT / 7), COLOR); //creates bottom rectangle
         } else {
-            upper = new RectangleComponent((int)WIDTH, HEIGHT,0,0);
-            lower = new RectangleComponent((int)WIDTH,HEIGHT,0,0);
+            upper = new RectangleComponent((int)WIDTH, HEIGHT,0,0, COLOR);
+            lower = new RectangleComponent((int)WIDTH,HEIGHT,0,0, COLOR);
         }
 
     }
 
-//    @Override
-//    public void paintComponent(Graphics g) {
-//        upper.paintComponent(g);
-//        lower.paintComponent(g);
-//
-//    }
+    @Override
+    public void paintComponent(Graphics g) {
+        upper.paintComponent(g);
+        lower.paintComponent(g);
+
+    }
 
     @Override
     public void update() {

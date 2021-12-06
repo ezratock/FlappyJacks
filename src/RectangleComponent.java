@@ -43,22 +43,22 @@ public class RectangleComponent extends GameComponent {
     private int y;
     private int width;
     private int height;
+    private Color color;
     private Rectangle rectangle;
 
-    public RectangleComponent(int x, int y, int width, int height) {
+    public RectangleComponent(int x, int y, int width, int height, Color color) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.color = color;
         rectangle = new Rectangle(x, y, width, height);
 
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        System.out.println("painting rect");
-        g.setColor(Color.green);
-        g.drawRect(200, 200, 20, 20);
+        g.setColor(this.color);
         g.fillRect(x, y, width, height);
     }
 

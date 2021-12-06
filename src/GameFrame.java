@@ -2,24 +2,24 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
-    private final int HEIGHT = 460;
-    private final int WIDTH = 510;
+    private final int FRAME_HEIGHT = 460;
+    private final int FRAME_WIDTH = 510;
 
     GamePanel panel;
 
     GameFrame(){
-        panel = new GamePanel();
+        panel = new GamePanel(FRAME_HEIGHT, FRAME_WIDTH);
         this.add(panel);
-        this.setSize(new Dimension(WIDTH, HEIGHT));
-//        this.setTitle("SUPER ENTICING TITLE");
-//        this.setResizable(false);
-//        this.setBackground(Color.blue);
+        this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
+        this.setTitle("SUPER ENTICING TITLE");
+        this.setResizable(false);
+        this.setBackground(Color.blue);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-//        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
-//    public void update() {
-//        panel.update();
-//    }
+    public void update() {
+        panel.update();
+    }
 }
