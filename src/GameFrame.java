@@ -5,8 +5,6 @@ public class GameFrame extends JFrame {
 
     GameFrame(){
         System.out.println("made it to construcotr of GameFrame");
-        GamePanel panel = new GamePanel();
-        this.add(panel);
         this.setTitle("SUPER ENTICING TITLE");
         this.setResizable(false);
         this.setBackground(Color.blue);
@@ -14,5 +12,11 @@ public class GameFrame extends JFrame {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+    }
+
+    public void update() {
+        System.out.println("HELLOOOOOO");
+        //bird.update()
+        //pillars.update();
     }
 }

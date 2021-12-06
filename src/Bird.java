@@ -1,4 +1,8 @@
 import javax.swing.*;
 
-public class Bird extends JComponent {
+public class Bird extends GameComponent {
+    @Override
+    public void update() {
+
+    }
 }
