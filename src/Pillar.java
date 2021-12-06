@@ -1,28 +1,73 @@
+import javax.swing.*;
 import java.awt.*;
 
-public class Pillar {
-    private Rectangle lower;
-    private Rectangle upper;
+public class Pillar extends GameComponent{
+    private RectangleComponent lower;
+    private RectangleComponent upper;
+    private int movePixels;
+    private int WIDTH;
 
-    public Pillar(int HEIGHT, int WIDTH, boolean isReal) {
+    public void setMovePixels(int movePixels) {
+        this.movePixels = movePixels;
+    }
+
+    public Pillar(double WIDTH, int HEIGHT, boolean isReal, int movePixels) {
+        this.WIDTH = (int)WIDTH;
+        this.movePixels = movePixels;
         if (isReal) {
             int gap = (int) ((Math.random() * HEIGHT) / 5f + (0.2f) * HEIGHT);
-            upper = new Rectangle(WIDTH, 0, WIDTH / 7, gap); //creates top rectangle
-            lower = new Rectangle(WIDTH, gap + HEIGHT / 7, WIDTH / 7, HEIGHT - (gap + HEIGHT / 7)); //creates bottom rectangle
+            upper = new RectangleComponent((int)WIDTH, 0, (int)WIDTH / 7, gap); //creates top rectangle
+            lower = new RectangleComponent((int)WIDTH, gap + HEIGHT / 7, (int)WIDTH / 7, HEIGHT - (gap + HEIGHT / 7)); //creates bottom rectangle
         } else {
-            upper = new Rectangle(WIDTH, HEIGHT,0,0);
-            lower = new Rectangle(WIDTH,HEIGHT,0,0);
+            upper = new RectangleComponent((int)WIDTH, HEIGHT,0,0);
+            lower = new RectangleComponent((int)WIDTH,HEIGHT,0,0);
         }
 
     }
 
-    public void updatePillar(double movePixels) {
+//    @Override
+//    public void paintComponent(Graphics g) {
+//        upper.paintComponent(g);
+//        lower.paintComponent(g);
+//
+//    }
+
+    @Override
+    public void update() {
         //moveleft
-        lower.x -= movePixels;
-        upper.x -= movePixels;
+        lower.setX((int)(lower.getX()-movePixels));
+        upper.setX((int)(upper.getX()-movePixels));
+        lower.update();
+        upper.update();
+    }
+
+    public boolean isAtEnd () {
+        if(lower.getX() + lower.getWidth() <= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void checkCollision(int x, int y) {
 
+    }
+
+    public void reset() {
+        upper.setX(WIDTH);
+        lower.setX(WIDTH);
+    }
+
+//    public void addToFrame(JFrame frame) {
+//        frame.add(upper);
+//        frame.add(lower);
+//    }
+
+    public RectangleComponent getLower() {
+        return lower;
+    }
+
+    public RectangleComponent getUpper() {
+        return upper;
     }
 }
