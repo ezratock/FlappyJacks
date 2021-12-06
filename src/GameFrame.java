@@ -9,6 +9,7 @@ public class GameFrame extends JFrame {
 
     GameFrame(){
         panel = new GamePanel(FRAME_HEIGHT, FRAME_WIDTH);
+        panel.setFocusable(true);
         this.add(panel);
         this.setSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
         this.setTitle("SUPER ENTICING TITLE");
