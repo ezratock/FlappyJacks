@@ -3,10 +3,10 @@ import java.awt.*;
 
 public class UI extends GameComponent{
     private String text;
-    private int score;
+    private static int score;
 
     public UI(){
-        this.score = 0;
+        score = 0;
     }
 
     @Override
@@ -20,11 +20,11 @@ public class UI extends GameComponent{
         g.drawString(text, 10,20);
     }
 
-    public void incrementScore() {
-        this.score ++;
+    public static void incrementScore() {
+        score ++;
     }
 
-    public int getScore() {
-        return this.score;
+    public static int getScore() {
+        return score;
     }
 }

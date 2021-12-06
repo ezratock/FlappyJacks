@@ -20,8 +20,6 @@ public class GamePanel extends JPanel {
         pillars.paintComponent(g);
         bird.paintComponent(g);
         userInterface.paintComponent(g);
-
-
     }
 
     public void update() {

@@ -37,9 +37,11 @@ public class Pillars extends GameComponent {
 			if (pillar.isAtEnd()) {
 				pillar.reset();
 			}
+			if (pillar.passedBird()) {
+				UI.incrementScore();
+			}
 			//if (r.contains(BIRD)){//end game}
 		}
 	}
 
 }
-

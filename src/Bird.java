@@ -9,6 +9,7 @@ public class Bird extends GameComponent implements KeyListener{
     private final double JUMPVAL = -8;
     private int yPos;
     private final int BIRD_DIMENSION = 20;
+    public static final int X_POS = 50;
 
     public Bird(){
         this.yPos = GameFrame.FRAME_HEIGHT / 2 - BIRD_DIMENSION / 2;
@@ -16,7 +17,7 @@ public class Bird extends GameComponent implements KeyListener{
 
     public void paintComponent(Graphics g){
         g.setColor(Color.ORANGE);
-        g.fillRect(50, yPos, BIRD_DIMENSION, BIRD_DIMENSION);
+        g.fillRect(X_POS, yPos, BIRD_DIMENSION, BIRD_DIMENSION);
 
     }
 

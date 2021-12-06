@@ -49,11 +49,11 @@ public class Pillar extends GameComponent{
     }
 
     public boolean isAtEnd () {
-        if(lower.getX() + lower.getWidth() <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return lower.getX() + lower.getWidth() <= 0;
+    }
+
+    public boolean passedBird () {
+        return lower.getX() <= Bird.X_POS - lower.getWidth() && lower.getX() > Bird.X_POS - lower.getWidth() - movePixels;
     }
 
     public void reset() {
