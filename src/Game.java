@@ -1,13 +1,19 @@
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Game {
 
     public static void main(String[] args) {
-        GameFrame gameF = new GameFrame();
-        InputHandler inputHandler = new InputHandler();
-        gameF.addKeyListener(inputHandler);
+        System.out.println("Got to main");
+        GameFrame gameFrame = new GameFrame();
+        final int DELAY = 100;
+//        Timer timer = new Timer(DELAY, new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                gameFrame.update();
+//            }
+//        });
+//        timer.start();
     }
-    
 }

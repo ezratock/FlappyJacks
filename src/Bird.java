@@ -1,12 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
 
+public class Bird extends GameComponent {
+    @Override
+    public void update() {
 
-public class Bird extends JComponent {
-	
-	
-	Bird() {
-		
-	}
-
+    }
 }
