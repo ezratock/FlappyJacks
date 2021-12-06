@@ -4,7 +4,9 @@ import java.awt.event.KeyListener;
 public class InputHandler implements KeyListener {
 		@Override
 		public void keyPressed(KeyEvent key) {
-			System.out.println(key.getKeyCode());
+			if(key.getKeyCode() == 32) {
+				System.out.println("jump");
+			}
 			
 		}
 
