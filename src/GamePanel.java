@@ -4,6 +4,7 @@ import java.awt.*;
 public class GamePanel extends JPanel {
     Pillars pillars;
     Bird bird = new Bird();
+    UI userInterface = new UI();
 
     GamePanel (int FRAME_HEIGHT, int FRAME_WIDTH) {
         this.setBackground(Color.CYAN);
@@ -18,6 +19,7 @@ public class GamePanel extends JPanel {
         super.paint(g);
         pillars.paintComponent(g);
         bird.paintComponent(g);
+        userInterface.paintComponent(g);
 
 
     }
@@ -26,5 +28,6 @@ public class GamePanel extends JPanel {
         repaint();
         pillars.update();
         bird.update();
+        userInterface.update();
     }
 }
