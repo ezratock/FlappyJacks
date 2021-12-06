@@ -13,18 +13,25 @@ public class Pillar extends GameComponent{
         this.movePixels = movePixels;
     }
 
-    public Pillar(double WIDTH, int HEIGHT, boolean isReal, int movePixels) {
+    public Pillar(double WIDTH, int HEIGHT, boolean isSecond, int movePixels) {
         this.WIDTH = (int)WIDTH;
         this.movePixels = movePixels;
-        if (isReal) {
-            int gap = (int) ((Math.random() * HEIGHT) / 5f + (0.2f) * HEIGHT);
-            upper = new RectangleComponent((int)WIDTH, 0, (int)WIDTH / 7, gap, COLOR); //creates top rectangle
-            lower = new RectangleComponent((int)WIDTH, gap + HEIGHT / 7, (int)WIDTH / 7, HEIGHT - (gap + HEIGHT / 7), COLOR); //creates bottom rectangle
-        } else {
-            upper = new RectangleComponent((int)WIDTH, HEIGHT,0,0, COLOR);
-            lower = new RectangleComponent((int)WIDTH,HEIGHT,0,0, COLOR);
+        int gap = (int) ((Math.random() * HEIGHT) / 5f + (0.2f) * HEIGHT);
+        upper = initializeUpper(WIDTH, HEIGHT, gap);
+        lower = initializeLower(WIDTH, HEIGHT, gap);
+        if (isSecond) {
+            upper.setX((int) (GameFrame.FRAME_WIDTH * (1.5 + 1f/14f))); //1/14 is half a pillar width
+            lower.setX((int) (GameFrame.FRAME_WIDTH * (1.5 + 1f/14f)));
         }
 
+    }
+
+    private RectangleComponent initializeLower(double width, int height, int gap) {
+        return new RectangleComponent(GameFrame.FRAME_WIDTH, gap + GameFrame.FRAME_HEIGHT / 7, GameFrame.FRAME_WIDTH / 7, GameFrame.FRAME_HEIGHT - (gap + GameFrame.FRAME_HEIGHT / 7), COLOR); //creates bottom rectangle
+    }
+
+    private RectangleComponent initializeUpper(double width, int height, int gap) {
+        return new RectangleComponent(GameFrame.FRAME_WIDTH, 0, GameFrame.FRAME_WIDTH / 7, gap, COLOR); //creates top rectangle
     }
 
     @Override
@@ -37,10 +44,8 @@ public class Pillar extends GameComponent{
     @Override
     public void update() {
         //moveleft
-        lower.setX((int)(lower.getX()-movePixels));
-        upper.setX((int)(upper.getX()-movePixels));
-        lower.update();
-        upper.update();
+        lower.setX((lower.getX()-movePixels));
+        upper.setX((upper.getX()-movePixels));
     }
 
     public boolean isAtEnd () {
@@ -51,19 +56,17 @@ public class Pillar extends GameComponent{
         }
     }
 
+    public void reset() {
+        int gap = (int) ((Math.random() * GameFrame.FRAME_HEIGHT)*(4f/7f) + ((1f/7f) * (double)GameFrame.FRAME_HEIGHT));
+        upper = initializeUpper(GameFrame.FRAME_WIDTH, GameFrame.FRAME_HEIGHT, gap);
+        lower = initializeLower(GameFrame.FRAME_WIDTH, GameFrame.FRAME_HEIGHT, gap);
+    }
+
+
     public void checkCollision(int x, int y) {
 
     }
 
-    public void reset() {
-        upper.setX(WIDTH);
-        lower.setX(WIDTH);
-    }
-
-//    public void addToFrame(JFrame frame) {
-//        frame.add(upper);
-//        frame.add(lower);
-//    }
 
     public RectangleComponent getLower() {
         return lower;

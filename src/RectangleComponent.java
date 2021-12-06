@@ -63,7 +63,5 @@ public class RectangleComponent extends GameComponent {
     }
 
     @Override
-    public void update() {
-        repaint();
-    }
+    public void update(){}
 }

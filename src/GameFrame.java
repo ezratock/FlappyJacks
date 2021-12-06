@@ -2,8 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
-    private final int FRAME_HEIGHT = 460;
-    private final int FRAME_WIDTH = 510;
+    public final static int FRAME_HEIGHT = 460;
+    public final static int FRAME_WIDTH = 510;
 
     GamePanel panel;
 

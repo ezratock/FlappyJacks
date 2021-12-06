@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
 import java.util.*;
 
 public class Pillars extends GameComponent {
@@ -12,21 +11,19 @@ public class Pillars extends GameComponent {
 
 
 	public Pillars(int FWIDTH, int FHEIGHT) {
-		pills = new Pillar[]{new Pillar(FWIDTH, FHEIGHT, true, MOVE_VALUE), new Pillar(FWIDTH*1.5, FHEIGHT, false, MOVE_VALUE)};
-		this.setSize(new Dimension(460,510));
+		pills = new Pillar[]{new Pillar(FWIDTH, FHEIGHT, true, MOVE_VALUE), new Pillar(FWIDTH, FHEIGHT, false, MOVE_VALUE)};
+		this.setSize(new Dimension(460, 510));
 		for (int i = 0; i < pills.length; i++) {
 			rectangles[i] = pills[i].getLower();
-			rectangles[i+2] = pills[i].getUpper();
+			rectangles[i + 2] = pills[i].getUpper();
 		}
-
 	}
 
 	@Override
 	public void paintComponent(Graphics g) {
-		for (Pillar pillar:pills) {
+		for (Pillar pillar : pills) {
 			pillar.paintComponent(g);
 		}
-
 	}
 
 	@Override
@@ -35,18 +32,14 @@ public class Pillars extends GameComponent {
 	}
 
 	public void updatePillarLoc() {
-		for (Pillar pillar :pills){
+		for (Pillar pillar : pills) {
 			pillar.update();
-			if (pillar.isAtEnd()){
+			if (pillar.isAtEnd()) {
 				pillar.reset();
 			}
 			//if (r.contains(BIRD)){//end game}
 		}
-
-
 	}
 
-//	public void relocatePillar(Pillar pillar) {
-//		pillar.resetPillar()
-//	}
 }
+

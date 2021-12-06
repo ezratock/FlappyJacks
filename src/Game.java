@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 public class Game {
 
     public static void main(String[] args) {
-        System.out.println("Got to main");
         GameFrame gameFrame = new GameFrame();
-        final int DELAY = 100;
+        final int DELAY = 10;
         Timer timer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
