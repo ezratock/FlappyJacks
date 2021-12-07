@@ -4,6 +4,7 @@ import java.awt.*;
 public class UI extends GameComponent{
     private String text;
     private static int score;
+    private int highScore = 0;
 
     public UI(){
         score = 0;
@@ -12,7 +13,8 @@ public class UI extends GameComponent{
 
     @Override
     public void update() {
-        text = "Score:  " + score;
+        updateScoreDisplay();
+        updateHighScore();
     }
 
     public void paintComponent(Graphics g) {
@@ -21,12 +23,17 @@ public class UI extends GameComponent{
         g.drawString(text, 10,20);
     }
 
-    public void displayHighScore() {
-
+    public void updateScoreDisplay() {
+        text = "Score:  " + score + "    High Score: " + highScore;
     }
 
-    public void gameOver() {
+    public static void resetScore() {
+        score = 0;
+    }
 
+    public void updateHighScore() {
+        if (this.score > this.highScore)
+            this.highScore = this.score;
     }
 
     public static void incrementScore() {

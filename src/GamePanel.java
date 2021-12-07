@@ -1,18 +1,33 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GamePanel extends JPanel {
     Pillars pillars;
     Bird bird = new Bird();
     UI userInterface = new UI();
-    //public static boolean gameOver = false;
+    public static boolean gameOver = false;
+    public static boolean reset = false;
     //public static boolean gamePlaying = true;
+
+    JButton restart = new JButton("Restart");
+
 
     GamePanel() {
         this.setBackground(Color.CYAN);
         this.addKeyListener(bird);
         pillars = new Pillars();
         this.add(pillars);
+//        this.add(restart);
+//        restart.setVisible(true);
+//        restart.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent but) {
+//                System.out.println("restart");
+//                reset = true;
+//            }
+//        });
     }
 
 
@@ -26,14 +41,25 @@ public class GamePanel extends JPanel {
     public void update() {
         repaint();
         GameComponent obj = checkCollisions(pillars.getRects());
-        if (obj!=null) {
-            System.out.println("Collided with pillar");
-        }
 
+        if (obj!=null || bird.getIsAtBottom()) {
+//            System.out.println("Collided with pillar");
+            bird.setIsDead();
+            pillars.stopMoving();
+            gameOver = true;
+
+        }
         pillars.update();
         bird.update();
         userInterface.update();
     }
+
+    public void reset(){
+        pillars.resetPillars();
+        pillars.startMoving();
+        bird.reset();
+    }
+
 
     public GameComponent checkCollisions(GameComponent[] objects) {
         int[] bp = bird.getProperties();
@@ -45,4 +71,5 @@ public class GamePanel extends JPanel {
         }
         return null;
     }
+
 }

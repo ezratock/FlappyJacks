@@ -2,8 +2,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
-    public final static int HEIGHT = 460;
-    public final static int WIDTH = 510;
+    public final static int HEIGHT = 600;
+    public final static int WIDTH = 600;
 
     GamePanel panel;
 
@@ -19,7 +19,9 @@ public class GameFrame extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-
+    public void reset(){
+        panel.reset();
+    }
     public void update() {
         panel.update();
     }

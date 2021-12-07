@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Pillar extends GameComponent{
-    private RectangleComponent lower;
-    private RectangleComponent upper;
+    private RectangleComponent lower = new RectangleComponent(0,0, 0, 0,Color.pink);
+    private RectangleComponent upper = new RectangleComponent(0,0, 0, 0,Color.pink);
     private int movePixels;
     private int WIDTH;
     private Color COLOR = Color.PINK;
@@ -16,13 +16,9 @@ public class Pillar extends GameComponent{
     public Pillar(boolean isSecond, int movePixels) {
         this.WIDTH = (int)WIDTH;
         this.movePixels = movePixels;
-        int gap = (int) ((Math.random() * GameFrame.HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.HEIGHT));
-        upper = initializeUpper(WIDTH, HEIGHT, gap);
-        lower = initializeLower(WIDTH, HEIGHT, gap);
-        if (isSecond) {
-            upper.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f))); //1/14 is half a pillar width
-            lower.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f)));
-        }
+        initializePillar(isSecond);
+
+
 
     }
 
@@ -60,6 +56,17 @@ public class Pillar extends GameComponent{
         int gap = (int) ((Math.random() * GameFrame.HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.HEIGHT));
         upper = initializeUpper(GameFrame.WIDTH, GameFrame.HEIGHT, gap);
         lower = initializeLower(GameFrame.WIDTH, GameFrame.HEIGHT, gap);
+    }
+
+    public void initializePillar(boolean isSecond) {
+        int gap = (int) ((Math.random() * GameFrame.HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.HEIGHT));
+        if (isSecond) {
+            upper.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f))); //1/14 is half a pillar width
+            lower.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f)));
+        } else {
+            upper = initializeUpper(WIDTH, HEIGHT, gap);
+            lower = initializeLower(WIDTH, HEIGHT, gap);
+        }
     }
 
 

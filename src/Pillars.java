@@ -1,14 +1,13 @@
-import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 
 public class Pillars extends GameComponent {
-	private final int MOVE_VALUE = 4;
+	private final int MOVE_SPEED = 4;
+	private int moveValue = MOVE_SPEED;
 	private Pillar[] pills;
 	public RectangleComponent[] rectangles = new RectangleComponent[4];
 
 	public Pillars() {
-		pills = new Pillar[]{new Pillar(false, MOVE_VALUE), new Pillar(true, MOVE_VALUE)};
+		pills = new Pillar[]{new Pillar(false, moveValue), new Pillar(true, moveValue)};
 		this.setSize(new Dimension(460, 510));
 		for (int i = 0; i < pills.length; i++) {
 			rectangles[i] = pills[i].getLower();
@@ -29,6 +28,18 @@ public class Pillars extends GameComponent {
 		updatePillarLoc();
 	}
 
+	public void stopMoving() {
+		for (Pillar pillar : pills) {
+			pillar.setMovePixels(0);
+		}
+	}
+
+	public void startMoving() {
+		for (Pillar pillar : pills) {
+			pillar.setMovePixels(MOVE_SPEED);
+		}
+	}
+
 	public void updatePillarLoc() {
 		for (Pillar pillar : pills) {
 			pillar.update();
@@ -39,6 +50,11 @@ public class Pillars extends GameComponent {
 				UI.incrementScore();
 			}
 		}
+	}
+
+	public void resetPillars(){
+		pills[0].initializePillar(true);
+		pills[1].initializePillar(false);
 	}
 
 	public RectangleComponent[] getRects(){
