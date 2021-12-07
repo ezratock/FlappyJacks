@@ -7,8 +7,8 @@ public class Pillars extends GameComponent {
 	private Pillar[] pills;
 	public RectangleComponent[] rectangles = new RectangleComponent[4];
 
-	public Pillars(int FWIDTH, int FHEIGHT) {
-		pills = new Pillar[]{new Pillar(FWIDTH, FHEIGHT, true, MOVE_VALUE), new Pillar(FWIDTH, FHEIGHT, false, MOVE_VALUE)};
+	public Pillars() {
+		pills = new Pillar[]{new Pillar(false, MOVE_VALUE), new Pillar(true, MOVE_VALUE)};
 		this.setSize(new Dimension(460, 510));
 		for (int i = 0; i < pills.length; i++) {
 			rectangles[i] = pills[i].getLower();

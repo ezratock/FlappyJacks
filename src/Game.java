@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Game {
-
     public static void main(String[] args) {
         GameFrame gameFrame = new GameFrame();
         final int DELAY = 10;

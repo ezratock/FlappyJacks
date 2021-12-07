@@ -6,12 +6,11 @@ public class GamePanel extends JPanel {
     Bird bird = new Bird();
     UI userInterface = new UI();
 
-    GamePanel (int FRAME_HEIGHT, int FRAME_WIDTH) {
+    GamePanel() {
         this.setBackground(Color.CYAN);
         this.addKeyListener(bird);
-        pillars = new Pillars(FRAME_HEIGHT, FRAME_WIDTH);
+        pillars = new Pillars();
         this.add(pillars);
-        System.out.println("made it to construcotr of GameFrame");
     }
 
 
