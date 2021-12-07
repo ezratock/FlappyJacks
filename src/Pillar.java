@@ -13,25 +13,25 @@ public class Pillar extends GameComponent{
         this.movePixels = movePixels;
     }
 
-    public Pillar(double WIDTH, int HEIGHT, boolean isSecond, int movePixels) {
+    public Pillar(boolean isSecond, int movePixels) {
         this.WIDTH = (int)WIDTH;
         this.movePixels = movePixels;
-        int gap = (int) ((Math.random() * GameFrame.FRAME_HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.FRAME_HEIGHT));
+        int gap = (int) ((Math.random() * GameFrame.HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.HEIGHT));
         upper = initializeUpper(WIDTH, HEIGHT, gap);
         lower = initializeLower(WIDTH, HEIGHT, gap);
         if (isSecond) {
-            upper.setX((int) (GameFrame.FRAME_WIDTH * (1.5 + 1f/14f))); //1/14 is half a pillar width
-            lower.setX((int) (GameFrame.FRAME_WIDTH * (1.5 + 1f/14f)));
+            upper.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f))); //1/14 is half a pillar width
+            lower.setX((int) (GameFrame.WIDTH * (1.5 + 1f/14f)));
         }
 
     }
 
     private RectangleComponent initializeLower(double width, int height, int gap) {
-        return new RectangleComponent(GameFrame.FRAME_WIDTH, gap + (int)(GameFrame.FRAME_HEIGHT * (3f / 14f)), GameFrame.FRAME_WIDTH / 7, GameFrame.FRAME_HEIGHT - (gap + GameFrame.FRAME_HEIGHT / 7), COLOR); //creates bottom rectangle
+        return new RectangleComponent(GameFrame.WIDTH, gap + (int)(GameFrame.HEIGHT * (3f / 14f)), GameFrame.WIDTH / 7, GameFrame.HEIGHT - (gap + GameFrame.HEIGHT / 7), COLOR); //creates bottom rectangle
     }
 
     private RectangleComponent initializeUpper(double width, int height, int gap) {
-        return new RectangleComponent(GameFrame.FRAME_WIDTH, 0, GameFrame.FRAME_WIDTH / 7, gap, COLOR); //creates top rectangle
+        return new RectangleComponent(GameFrame.WIDTH, 0, GameFrame.WIDTH / 7, gap, COLOR); //creates top rectangle
     }
 
     @Override
@@ -57,9 +57,9 @@ public class Pillar extends GameComponent{
     }
 
     public void reset() {
-        int gap = (int) ((Math.random() * GameFrame.FRAME_HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.FRAME_HEIGHT));
-        upper = initializeUpper(GameFrame.FRAME_WIDTH, GameFrame.FRAME_HEIGHT, gap);
-        lower = initializeLower(GameFrame.FRAME_WIDTH, GameFrame.FRAME_HEIGHT, gap);
+        int gap = (int) ((Math.random() * GameFrame.HEIGHT)*(7f/14f) + ((1f/7f) * (double)GameFrame.HEIGHT));
+        upper = initializeUpper(GameFrame.WIDTH, GameFrame.HEIGHT, gap);
+        lower = initializeLower(GameFrame.WIDTH, GameFrame.HEIGHT, gap);
     }
 
 
