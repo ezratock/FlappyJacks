@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -7,12 +6,12 @@ public class Bird extends GameComponent implements KeyListener{
     private double velocity;
     private final double ACCEL = 0.5;
     private final double JUMPVAL = -8;
-    private static int yPos;
+    private int yPos;
     private static final int BIRD_DIMENSION = 20;
     public static final int X_POS = 50;
 
     public Bird(){
-        yPos = GameFrame.FRAME_HEIGHT / 2 - BIRD_DIMENSION / 2;
+        yPos = GameFrame.HEIGHT / 2 - BIRD_DIMENSION / 2;
     }
 
     public void paintComponent(Graphics g){

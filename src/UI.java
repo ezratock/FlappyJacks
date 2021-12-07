@@ -7,6 +7,7 @@ public class UI extends GameComponent{
 
     public UI(){
         score = 0;
+        text = "Score: 0";
     }
 
     @Override

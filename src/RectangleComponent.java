@@ -52,7 +52,7 @@ public class RectangleComponent extends GameComponent {
         this.width = width;
         this.height = height;
         this.color = color;
-        rectangle = new Rectangle(x, y, width, height);
+        this.rectangle = new Rectangle(x, y, width, height);
 
     }
 
