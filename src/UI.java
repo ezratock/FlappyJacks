@@ -21,6 +21,14 @@ public class UI extends GameComponent{
         g.drawString(text, 10,20);
     }
 
+    public void displayHighScore() {
+
+    }
+
+    public void gameOver() {
+
+    }
+
     public static void incrementScore() {
         score ++;
     }

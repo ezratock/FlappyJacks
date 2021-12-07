@@ -25,9 +25,16 @@ public class Bird extends GameComponent implements KeyListener{
         velocity += ACCEL;
 
     }
+
+    public void die() {
+
+    }
     @Override
     public void update() {
         applyPhys();
+        if (getyPos()>GameFrame.HEIGHT){
+            System.out.println("you fucked up");
+        }
     }
 
     @Override
@@ -48,5 +55,9 @@ public class Bird extends GameComponent implements KeyListener{
     @Override
     public int[] getProperties(){
         return new int[]{X_POS, yPos, BIRD_DIMENSION, BIRD_DIMENSION};
+    }
+
+    public int getyPos(){
+        return yPos;
     }
 }

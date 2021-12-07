@@ -5,6 +5,8 @@ public class GamePanel extends JPanel {
     Pillars pillars;
     Bird bird = new Bird();
     UI userInterface = new UI();
+    //public static boolean gameOver = false;
+    //public static boolean gamePlaying = true;
 
     GamePanel() {
         this.setBackground(Color.CYAN);
