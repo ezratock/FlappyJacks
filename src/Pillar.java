@@ -75,4 +75,9 @@ public class Pillar extends GameComponent{
     public RectangleComponent getUpper() {
         return upper;
     }
+
+    @Override
+    public int[] getProperties(){
+        return new int[]{-1,-1,-1,-1};
+    }
 }

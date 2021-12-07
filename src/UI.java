@@ -27,4 +27,9 @@ public class UI extends GameComponent{
     public static int getScore() {
         return score;
     }
+
+    @Override
+    public int[] getProperties(){
+        return new int[]{-1,-1,-1,-1};
+    }
 }

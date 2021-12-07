@@ -3,12 +3,9 @@ import java.awt.*;
 import java.util.*;
 
 public class Pillars extends GameComponent {
-	private final int NUM_PILLARS = 4;
 	private final int MOVE_VALUE = 4;
-	private int activePillars = 0;
 	private Pillar[] pills;
 	public RectangleComponent[] rectangles = new RectangleComponent[4];
-
 
 	public Pillars(int FWIDTH, int FHEIGHT) {
 		pills = new Pillar[]{new Pillar(FWIDTH, FHEIGHT, true, MOVE_VALUE), new Pillar(FWIDTH, FHEIGHT, false, MOVE_VALUE)};
@@ -28,6 +25,7 @@ public class Pillars extends GameComponent {
 
 	@Override
 	public void update() {
+
 		updatePillarLoc();
 	}
 
@@ -40,8 +38,23 @@ public class Pillars extends GameComponent {
 			if (pillar.passedBird()) {
 				UI.incrementScore();
 			}
-			//if (r.contains(BIRD)){//end game}
 		}
+	}
+
+	public RectangleComponent[] getRects(){
+		int index = 0;
+		RectangleComponent[] returnVar = new RectangleComponent[4];
+		for (Pillar pill: pills) {
+			returnVar[index] = pill.getUpper();
+			returnVar[index+1] = pill.getLower();
+			index += 2;
+		}
+		return returnVar;
+	}
+
+	@Override
+	public int[] getProperties(){
+		return new int[]{-1,-1,-1,-1};
 	}
 
 }

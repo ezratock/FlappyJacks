@@ -7,12 +7,12 @@ public class Bird extends GameComponent implements KeyListener{
     private double velocity;
     private final double ACCEL = 0.5;
     private final double JUMPVAL = -8;
-    private int yPos;
-    private final int BIRD_DIMENSION = 20;
+    private static int yPos;
+    private static final int BIRD_DIMENSION = 20;
     public static final int X_POS = 50;
 
     public Bird(){
-        this.yPos = GameFrame.FRAME_HEIGHT / 2 - BIRD_DIMENSION / 2;
+        yPos = GameFrame.FRAME_HEIGHT / 2 - BIRD_DIMENSION / 2;
     }
 
     public void paintComponent(Graphics g){
@@ -20,8 +20,6 @@ public class Bird extends GameComponent implements KeyListener{
         g.fillRect(X_POS, yPos, BIRD_DIMENSION, BIRD_DIMENSION);
 
     }
-
-
 
     public void applyPhys(){
         yPos += velocity;
@@ -46,5 +44,10 @@ public class Bird extends GameComponent implements KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    @Override
+    public int[] getProperties(){
+        return new int[]{X_POS, yPos, BIRD_DIMENSION, BIRD_DIMENSION};
     }
 }
