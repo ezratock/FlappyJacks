@@ -12,7 +12,7 @@ public class GameFrame extends JFrame {
         panel.setFocusable(true);
         this.add(panel);
         this.setSize(new Dimension(WIDTH, HEIGHT));
-        this.setTitle("SUPER ENTICING TITLE");
+        this.setTitle("Flappy Jack");
         this.setResizable(false);
         this.setBackground(Color.blue);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
