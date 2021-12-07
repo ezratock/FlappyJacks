@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class UI extends GameComponent{
+public class UI extends GameComponent {
     private String text;
     private static int score;
     private int highScore = 0;
 
-    public UI(){
+    public UI() {
         score = 0;
         text = "Score: 0";
     }
@@ -20,7 +20,7 @@ public class UI extends GameComponent{
     public void paintComponent(Graphics g) {
         g.setColor(Color.black);
         g.setFont(new Font("Impact", Font.PLAIN, 20));
-        g.drawString(text, 10,20);
+        g.drawString(text, 10, 20);
     }
 
     public void updateScoreDisplay() {
@@ -37,7 +37,7 @@ public class UI extends GameComponent{
     }
 
     public static void incrementScore() {
-        score ++;
+        score++;
     }
 
     public static int getScore() {
@@ -45,7 +45,7 @@ public class UI extends GameComponent{
     }
 
     @Override
-    public int[] getProperties(){
-        return new int[]{-1,-1,-1,-1};
+    public int[] getProperties() {
+        return new int[]{-1, -1, -1, -1};
     }
 }

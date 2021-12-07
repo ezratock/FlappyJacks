@@ -63,10 +63,11 @@ public class RectangleComponent extends GameComponent {
     }
 
     @Override
-    public void update(){}
+    public void update() {
+    }
 
     @Override
-    public int[] getProperties(){
+    public int[] getProperties() {
         return new int[]{x, y, width, height};
     }
 }

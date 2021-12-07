@@ -7,7 +7,7 @@ public class GameFrame extends JFrame {
 
     GamePanel panel;
 
-    GameFrame(){
+    GameFrame() {
         panel = new GamePanel();
         panel.setFocusable(true);
         this.add(panel);
@@ -19,9 +19,11 @@ public class GameFrame extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-    public void reset(){
+
+    public void reset() {
         panel.reset();
     }
+
     public void update() {
         panel.update();
     }

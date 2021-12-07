@@ -29,7 +29,6 @@ public class Bird extends GameComponent implements KeyListener {
             isDead = true;
         } else {
             yPos += velocity;
-            System.out.println("Velocity: " + velocity);
             if (velocity > MAX_VEL) {
                 velocity = MAX_VEL;
             }
@@ -59,13 +58,11 @@ public class Bird extends GameComponent implements KeyListener {
 
     @Override
     public void update() {
-//        applyPhysAlive();
         if (getyPos() > GameFrame.HEIGHT - GUI_OFFSET_FUCKED_UP - BIRD_DIMENSION) {
             isDead = true;
         }
         if (isDead) {
             applePhysDead();
-//            System.out.println("You are Dead");
         } else
             applyPhysAlive();
     }
