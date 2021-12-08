@@ -43,4 +43,10 @@ public class MovingObj extends GameComponent {
     public boolean isOffScreen() {
         return x + bufferedImage.getWidth() * scale < 0;
     }
+
+    public void recycle(double width) {
+        if (x < -width) {
+            x += width * 4;
+        }
+    }
 }

@@ -3,11 +3,9 @@ import java.awt.*;
 public class Pillar extends GameComponent {
     private RectangleComponent lower = new RectangleComponent(0, 0, 0, 0, Color.pink);
     private RectangleComponent upper = new RectangleComponent(0, 0, 0, 0, Color.pink);
-    private int WIDTH;
     private Color COLOR = Color.PINK;
 
     public Pillar(boolean isSecond) {
-        this.WIDTH = (int) WIDTH;
         initializePillar(isSecond);
 
     }

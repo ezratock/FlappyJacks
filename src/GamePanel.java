@@ -12,6 +12,8 @@ public class GamePanel extends JPanel {
     MovingGroup ground;
     public static boolean gameOver = false;
     public static boolean reset = false;
+    private final double GROUND_SCALE = 0.25; //from 0.2 to 0.4
+    private final double GROUND_IMG_WIDTH = 1475; //Image Width
 
     GamePanel() {
         this.setBackground(new Color(222,216,149));
@@ -24,12 +26,10 @@ public class GamePanel extends JPanel {
             e.printStackTrace();
         }
         int groundY = GameFrame.HEIGHT - 100;
-        double groundScale = 0.25; //from 0.2 to 0.4
-        double groundRatio = 2.4555; //depending on image
-        ground = new MovingGroup(new MovingObj("images/ground.png", 0, groundY, groundScale),
-                new MovingObj("images/ground.png", (int) (groundScale * groundRatio * GameFrame.WIDTH), groundY, groundScale),
-                new MovingObj("images/ground.png", (int) (groundScale * groundRatio * 2 * GameFrame.WIDTH), groundY, groundScale),
-                new MovingObj("images/ground.png", (int) (groundScale * groundRatio * 3 * GameFrame.WIDTH), groundY, groundScale));
+        ground = new MovingGroup(new MovingObj("images/ground.png", 0, groundY, GROUND_SCALE),
+                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH), groundY, GROUND_SCALE),
+                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 2), groundY, GROUND_SCALE),
+                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 3), groundY, GROUND_SCALE));
     }
 
 
@@ -55,6 +55,7 @@ public class GamePanel extends JPanel {
             gameOver = true;
 
         }
+        ground.recycle(GROUND_IMG_WIDTH * GROUND_SCALE);
         ground.update();
         pillars.update();
         bird.update();

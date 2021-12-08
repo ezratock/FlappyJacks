@@ -25,4 +25,10 @@ public class MovingGroup extends GameComponent{
     public int[] getProperties() {
         return new int[4];
     }
+
+    public void recycle(double width) {
+        for (MovingObj obj : objects) {
+            obj.recycle(width);
+        }
+    }
 }
