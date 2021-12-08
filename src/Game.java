@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class Game {
     private static GameFrame gameFrame = new GameFrame();
-    private static final int DELAY = 10;
+    private static final int DELAY = 13;
     public static final int ORIGINAL_MOVE_SPEED = 4;
     public static int moveSpeed = 4;
 

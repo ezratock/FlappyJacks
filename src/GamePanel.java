@@ -37,8 +37,8 @@ public class GamePanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(background, 0, 0, this);
-        ground.paintComponent(g);
         pillars.paintComponent(g);
+        ground.paintComponent(g);
         bird.paintComponent(g);
         userInterface.paintComponent(g);
     }
