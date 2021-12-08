@@ -27,10 +27,17 @@ public class GamePanel extends JPanel {
             e.printStackTrace();
         }
         int groundY = GameFrame.HEIGHT - GROUND_HEIGHT;
-        ground = new MovingGroup(new MovingObj("images/ground.png", 0, groundY, GROUND_SCALE),
-                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH), groundY, GROUND_SCALE),
-                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 2), groundY, GROUND_SCALE),
-                new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 3), groundY, GROUND_SCALE));
+        if (Game.currentDirectory.equals("Project3")) {
+            ground = new MovingGroup(new MovingObj("images/ground.png", 0, groundY, GROUND_SCALE),
+                    new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH), groundY, GROUND_SCALE),
+                    new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 2), groundY, GROUND_SCALE),
+                    new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 3), groundY, GROUND_SCALE));
+        } else  {
+            ground = new MovingGroup(new MovingObj("../images/ground.png", 0, groundY, GROUND_SCALE),
+                    new MovingObj("../images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH), groundY, GROUND_SCALE),
+                    new MovingObj("../images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 2), groundY, GROUND_SCALE),
+                    new MovingObj("../images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 3), groundY, GROUND_SCALE));
+        }
     }
 
 

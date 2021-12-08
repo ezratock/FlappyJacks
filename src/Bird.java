@@ -24,7 +24,11 @@ public class Bird extends GameComponent implements KeyListener {
 
     public Bird() {
         yPos = GameFrame.HEIGHT / 2 - HITBOX_DIMENSION / 2;
-        String[] filePaths = new String[]{"images/pancake.png", "images/pancakeFlap.png", "images/pancakeDeath.png"};
+        String[] filePaths = new String[]{"../images/pancake.png", "../images/pancakeFlap.png", "../images/pancakeDeath.png"};
+        if (Game.currentDirectory.equals("Project3")) {
+            filePaths = new String[]{"images/pancake.png", "images/pancakeFlap.png", "images/pancakeDeath.png"};
+        }
+
         for (int x = 0; x < 3; x++) {
             try {
                 bufferedImages[x] = ImageIO.read(new File(filePaths[x]));

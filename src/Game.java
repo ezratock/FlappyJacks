@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class Game {
+    public static String currentDirectory = new File(new File(".").getAbsolutePath()).getParentFile().getName();
     private static GameFrame gameFrame = new GameFrame();
     private static final int DELAY = 13;
     public static final int ORIGINAL_MOVE_SPEED = 4;
@@ -12,6 +14,7 @@ public class Game {
 
     public static void main(String[] args) {
     	stopUpdate = false;
+        System.out.println(currentDirectory);
 
         timer = new Timer(DELAY, new ActionListener() {
             @Override
