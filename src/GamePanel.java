@@ -22,7 +22,7 @@ public class GamePanel extends JPanel {
         pillars = new Pillars();
         this.add(pillars);
         try {
-            this.background = ImageIO.read(new File("images/background.png"));
+            this.background = ImageIO.read(new File(Game.currentDirectory.equals("Project3") ? "images/background.png" : "../images/background.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
