@@ -43,24 +43,29 @@ public class GamePanel extends JPanel {
         userInterface.paintComponent(g);
     }
 
-    public void update() {
-        repaint();
-        GameComponent obj = checkCollisions(pillars.getRects());
-
-        if (obj != null || bird.getIsAtBottom()) {
-            if (!gameOver) {
-                bird.setVelocity(0);
-            }
-            bird.setIsDead();
-            Game.moveSpeed = 0;
-            gameOver = true;
-
+    public void update(boolean birdDead) {
+    	repaint();
+        if(birdDead) {
+        	bird.update();
+        } else {
+	        GameComponent obj = checkCollisions(pillars.getRects());
+	
+	        if (obj != null || bird.getIsAtBottom()) {
+	            if (!gameOver) {
+	                bird.setVelocity(0);
+	            }
+	            bird.setIsDead();
+	            Game.moveSpeed = 0;
+	            gameOver = true;
+	
+	        }
+	        ground.recycle(GROUND_IMG_WIDTH * GROUND_SCALE);
+	        ground.update();
+	        pillars.update();
+	        bird.update();
+	        userInterface.update();
         }
-        ground.recycle(GROUND_IMG_WIDTH * GROUND_SCALE);
-        ground.update();
-        pillars.update();
-        bird.update();
-        userInterface.update();
+        
     }
 
     public void reset() {

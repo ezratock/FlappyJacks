@@ -7,34 +7,35 @@ public class Game {
     private static final int DELAY = 13;
     public static final int ORIGINAL_MOVE_SPEED = 4;
     public static int moveSpeed = 4;
+    private static Timer timer;
+    private static boolean stopUpdate;
 
     public static void main(String[] args) {
+    	stopUpdate = false;
 
-        Timer timer = new Timer(DELAY, new ActionListener() {
+        timer = new Timer(DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameFrame.update();
+            	if (GamePanel.gameOver) {
+                    stopUpdate = true;
+                    if (GamePanel.reset) {
+                        resetGame();
+                    }
+                }
+                if (GamePanel.reset) {
+                    resetGame();
+                }
+                
+                gameFrame.update(stopUpdate);
+                
             }
         });
         timer.start();
 
-        while (true) {
-            if (GamePanel.gameOver) {
-                timer.stop();
-                if (GamePanel.reset) {
-                    resetGame();
-                    timer.restart();
-                }
-            }
-            if (GamePanel.reset) {
-                resetGame();
-                timer.restart();
-            }
-        }
-
     }
 
     public static void resetGame() {
+    	stopUpdate = false;
         UI.resetScore();
         gameFrame.reset();
         GamePanel.reset = false;

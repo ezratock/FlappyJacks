@@ -24,7 +24,7 @@ public class GameFrame extends JFrame {
         panel.reset();
     }
 
-    public void update() {
-        panel.update();
+    public void update(boolean birdDead) {
+        panel.update(birdDead);
     }
 }
