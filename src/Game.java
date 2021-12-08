@@ -18,7 +18,6 @@ public class Game {
     public static void main(String[] args) {
     	deathTimeCounter = 0;
     	stopUpdate = false;
-        System.out.println(currentDirectory);
 
         timer = new Timer(DELAY, new ActionListener() {
             @Override
@@ -47,7 +46,6 @@ public class Game {
     	stopUpdate = false;
         UI.resetScore();
         gameFrame.reset();
-        System.out.println("Should be playing now");
         GamePanel.reset = false;
         GamePanel.gameOver = false;
 
