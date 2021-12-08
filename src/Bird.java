@@ -15,7 +15,7 @@ public class Bird extends GameComponent implements KeyListener {
     private static final int HITBOX_DIMENSION = 30;
     public static final int X_POS = 100;
     private boolean isDead = false;
-    private final int GUI_OFFSET_FUCKED_UP = 37;
+    private final int GUI_OFFSET_FUCKED_UP = 0;
     private final int MAX_VEL = 13;
     private final double scale = 0.15;
     private Image[] images = new Image[]{null, null, null};
@@ -41,7 +41,7 @@ public class Bird extends GameComponent implements KeyListener {
     }
 
     public void applyPhysAlive() {
-        if (yPos > GameFrame.HEIGHT - HITBOX_DIMENSION) {
+        if (deadBool()) {
             isDead = true;
         } else {
             yPos += velocity;
@@ -53,10 +53,10 @@ public class Bird extends GameComponent implements KeyListener {
     }
 
     public void applyPhysDead() {
-        if (yPos >= GameFrame.HEIGHT - HITBOX_DIMENSION - GUI_OFFSET_FUCKED_UP) {
+        if (deadBool()) {
             velocity = 0;
             accelValue = 0;
-            yPos = GameFrame.HEIGHT - HITBOX_DIMENSION - GUI_OFFSET_FUCKED_UP;
+            yPos = GameFrame.HEIGHT - HITBOX_DIMENSION - GUI_OFFSET_FUCKED_UP - GamePanel.GROUND_HEIGHT;
         } else {
             applyPhysAlive();
         }
@@ -74,7 +74,7 @@ public class Bird extends GameComponent implements KeyListener {
 
     @Override
     public void update() {
-        if (getyPos() > GameFrame.HEIGHT - GUI_OFFSET_FUCKED_UP - HITBOX_DIMENSION + GamePanel.GROUND_HEIGHT) {
+        if (deadBool() || yPos<0) {
             isDead = true;
         }
         if (isDead) {
@@ -91,7 +91,7 @@ public class Bird extends GameComponent implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
-
+    int count = 0;
     @Override
     public void keyPressed(KeyEvent e) {
         if (!isDead) {
@@ -100,7 +100,9 @@ public class Bird extends GameComponent implements KeyListener {
         }
         else {
             GamePanel.reset = true;
+            System.out.println("space pressed " + count);
         }
+        count++;
     }
 
     @Override
@@ -119,5 +121,9 @@ public class Bird extends GameComponent implements KeyListener {
 
     public void setVelocity(int v){
         velocity = v;
+    }
+
+    private boolean deadBool() {
+        return yPos > GameFrame.HEIGHT - GUI_OFFSET_FUCKED_UP - HITBOX_DIMENSION - GamePanel.GROUND_HEIGHT;
     }
 }

@@ -41,13 +41,13 @@ public class Pillar extends GameComponent {
     }
 
     public void reset() {
-        int gap = (int) ((Math.random() * GameFrame.HEIGHT) * (7f / 14f) + ((1f / 7f) * (double) GameFrame.HEIGHT));
+        int gap = initializeGap();
         upper = initializeUpper(gap);
         lower = initializeLower(gap);
     }
 
     public void initializePillar(boolean isSecond) {
-        int gap = (int) ((Math.random() * GameFrame.HEIGHT) * (7f / 14f) + ((1f / 7f) * (double) GameFrame.HEIGHT));
+        int gap = initializeGap();
         if (isSecond) {
             upper = initializeUpper(gap);
             lower = initializeLower(gap);
@@ -71,5 +71,9 @@ public class Pillar extends GameComponent {
     @Override
     public int[] getProperties() {
         return new int[]{-1, -1, -1, -1};
+    }
+
+    private int initializeGap() {
+        return (int) ((Math.random() * GameFrame.HEIGHT) * (3f / 7f) + ((1f / 7f) * (double) GameFrame.HEIGHT));
     }
 }

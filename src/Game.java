@@ -38,6 +38,7 @@ public class Game {
     	stopUpdate = false;
         UI.resetScore();
         gameFrame.reset();
+        System.out.println("Should be playing now");
         GamePanel.reset = false;
         GamePanel.gameOver = false;
 
