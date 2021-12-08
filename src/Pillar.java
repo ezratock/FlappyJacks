@@ -49,8 +49,10 @@ public class Pillar extends GameComponent {
     public void initializePillar(boolean isSecond) {
         int gap = (int) ((Math.random() * GameFrame.HEIGHT) * (7f / 14f) + ((1f / 7f) * (double) GameFrame.HEIGHT));
         if (isSecond) {
-            upper.setX((int) (GameFrame.WIDTH * (0.5 + 1f / 14f))); //1/14 is half a pillar width
-            lower.setX((int) (GameFrame.WIDTH * (0.5 + 1f / 14f)));
+            upper = initializeUpper(gap);
+            lower = initializeLower(gap);
+            upper.setX((int) (GameFrame.WIDTH * (1.5 + 1f / 14f))); //1/14 is half a pillar width
+            lower.setX((int) (GameFrame.WIDTH * (1.5 + 1f / 14f)));
         } else {
             upper = initializeUpper(gap);
             lower = initializeLower(gap);
