@@ -1,9 +1,11 @@
-import javax.imageio.ImageIO;
-import javax.swing.*;
+package src;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
 public class MovingObj extends GameComponent {
     private BufferedImage bufferedImage;

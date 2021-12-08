@@ -1,5 +1,7 @@
-import javax.swing.*;
+package src;
 import java.awt.*;
+
+import javax.swing.*;
 
 public class RectangleComponent extends GameComponent {
 

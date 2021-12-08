@@ -1,12 +1,16 @@
-import javax.swing.*;
+package src;
 import java.awt.*;
+
+import javax.swing.*;
 
 public class UI extends GameComponent {
     private String text;
+    private static String gameOverText;
     private static int score;
     private int highScore = 0;
 
     public UI() {
+    	gameOverText = "";
         score = 0;
         text = "Score: 0";
     }
@@ -21,6 +25,7 @@ public class UI extends GameComponent {
         g.setColor(Color.black);
         g.setFont(new Font("Impact", Font.PLAIN, 20));
         g.drawString(text, 10, 20);
+        g.drawString(gameOverText, GameFrame.WIDTH/2 - 100, GameFrame.HEIGHT/2);
     }
 
     public void updateScoreDisplay() {
@@ -29,6 +34,11 @@ public class UI extends GameComponent {
 
     public static void resetScore() {
         score = 0;
+        gameOverText = "";
+    }
+    
+    public static void gameOverDisplay() {
+    	gameOverText = "Game Over! Any key to Restart";
     }
 
     public void updateHighScore() {

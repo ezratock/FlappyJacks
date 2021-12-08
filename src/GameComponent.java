@@ -1,3 +1,4 @@
+package src;
 import javax.swing.*;
 
 public abstract class GameComponent extends JComponent {

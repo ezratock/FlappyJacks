@@ -1,10 +1,12 @@
-import javax.imageio.ImageIO;
+package src;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Bird extends GameComponent implements KeyListener {
     private double velocity;

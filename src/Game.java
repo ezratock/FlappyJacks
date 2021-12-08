@@ -1,7 +1,9 @@
-import javax.swing.*;
+package src;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
+import javax.swing.*;
 
 public class Game {
     public static String currentDirectory = new File(new File(".").getAbsolutePath()).getParentFile().getName();
@@ -11,8 +13,10 @@ public class Game {
     public static int moveSpeed = 4;
     private static Timer timer;
     private static boolean stopUpdate;
+    private static int deathTimeCounter;
 
     public static void main(String[] args) {
+    	deathTimeCounter = 0;
     	stopUpdate = false;
         System.out.println(currentDirectory);
 
@@ -20,13 +24,15 @@ public class Game {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if (GamePanel.gameOver) {
+            		deathTimeCounter += DELAY;
                     stopUpdate = true;
-                    if (GamePanel.reset) {
-                        resetGame();
+                    if(deathTimeCounter > 700) {
+                    	UI.gameOverDisplay();
                     }
-                }
-                if (GamePanel.reset) {
-                    resetGame();
+                    if (GamePanel.reset && deathTimeCounter > 700) {
+                    	deathTimeCounter = 0;
+                        resetGame();
+                    } else { GamePanel.reset = false; }
                 }
                 
                 gameFrame.update(stopUpdate);

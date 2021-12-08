@@ -1,3 +1,4 @@
+package src;
 import java.awt.*;
 
 public class MovingGroup extends GameComponent{
