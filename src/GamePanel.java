@@ -14,6 +14,7 @@ public class GamePanel extends JPanel {
     public static boolean reset = false;
     private final double GROUND_SCALE = 0.25; //from 0.2 to 0.4
     private final double GROUND_IMG_WIDTH = 1475; //Image Width
+    public static final int GROUND_HEIGHT = 100;
 
     GamePanel() {
         this.setBackground(new Color(222,216,149));
@@ -25,7 +26,7 @@ public class GamePanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int groundY = GameFrame.HEIGHT - 100;
+        int groundY = GameFrame.HEIGHT - GROUND_HEIGHT;
         ground = new MovingGroup(new MovingObj("images/ground.png", 0, groundY, GROUND_SCALE),
                 new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH), groundY, GROUND_SCALE),
                 new MovingObj("images/ground.png", (int) (GROUND_SCALE * GROUND_IMG_WIDTH * 2), groundY, GROUND_SCALE),
