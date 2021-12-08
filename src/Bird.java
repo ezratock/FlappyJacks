@@ -36,7 +36,7 @@ public class Bird extends GameComponent implements KeyListener {
         }
     }
 
-    public void applePhysDead() {
+    public void applyPhysDead() {
         if (yPos >= GameFrame.HEIGHT - BIRD_DIMENSION - GUI_OFFSET_FUCKED_UP) {
             velocity = 0;
             accelValue = 0;
@@ -62,7 +62,7 @@ public class Bird extends GameComponent implements KeyListener {
             isDead = true;
         }
         if (isDead) {
-            applePhysDead();
+            applyPhysDead();
         } else
             applyPhysAlive();
     }
@@ -97,5 +97,9 @@ public class Bird extends GameComponent implements KeyListener {
 
     public int getyPos() {
         return yPos;
+    }
+
+    public void setVelocity(int v){
+        velocity = v;
     }
 }
