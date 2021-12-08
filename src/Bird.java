@@ -79,8 +79,9 @@ public class Bird extends GameComponent implements KeyListener {
         }
         if (isDead) {
             applyPhysDead();
-        } else
+        } else {
             applyPhysAlive();
+        }
     }
 
     public boolean getIsAtBottom() {
@@ -91,7 +92,6 @@ public class Bird extends GameComponent implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
-    int count = 0;
     @Override
     public void keyPressed(KeyEvent e) {
         if (!isDead) {
@@ -100,9 +100,7 @@ public class Bird extends GameComponent implements KeyListener {
         }
         else {
             GamePanel.reset = true;
-            System.out.println("space pressed " + count);
         }
-        count++;
     }
 
     @Override
