@@ -53,28 +53,28 @@ public class GamePanel extends JPanel {
     }
 
     public void update(boolean birdDead) {
-    	repaint();
+        repaint();
         if(birdDead) {
-        	bird.update();
+            bird.update();
         } else {
-	        GameComponent obj = checkCollisions(pillars.getRects());
-	
-	        if (obj != null || bird.getIsAtBottom()) {
-	            if (!gameOver) {
-	                bird.setVelocity(0);
-	            }
-	            bird.setIsDead();
-	            Game.moveSpeed = 0;
-	            gameOver = true;
-	
-	        }
-	        ground.recycle(GROUND_IMG_WIDTH * GROUND_SCALE);
-	        ground.update();
-	        pillars.update();
-	        bird.update();
-	        userInterface.update();
+            GameComponent obj = checkCollisions(pillars.getRects());
+
+            if (obj != null || bird.getIsAtBottom()) {
+                if (!gameOver) {
+                    bird.setVelocity(0);
+                }
+                bird.setIsDead();
+                Game.moveSpeed = 0;
+                gameOver = true;
+
+            }
+            ground.recycle(GROUND_IMG_WIDTH * GROUND_SCALE);
+            ground.update();
+            pillars.update();
+            bird.update();
+            userInterface.update();
         }
-        
+
     }
 
     public void reset() {
@@ -96,3 +96,4 @@ public class GamePanel extends JPanel {
     }
 
 }
+

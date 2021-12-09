@@ -2,8 +2,8 @@ package src;
 import java.awt.*;
 
 public class Pillar extends GameComponent {
-    private RectangleComponent lower = new RectangleComponent(0, 0, 0, 0, Color.pink);
-    private RectangleComponent upper = new RectangleComponent(0, 0, 0, 0, Color.pink);
+    private RectangleComponent lower = new RectangleComponent(0, 0, 0, 0, false, false);
+    private RectangleComponent upper = new RectangleComponent(0, 0, 0, 0, true, false);
     private Color COLOR = Color.PINK;
 
     public Pillar(boolean isSecond) {
@@ -12,11 +12,11 @@ public class Pillar extends GameComponent {
     }
 
     private RectangleComponent initializeLower(int gap) {
-        return new RectangleComponent(GameFrame.WIDTH, gap + (int) (GameFrame.HEIGHT * (3f / 14f)), GameFrame.WIDTH / 7, GameFrame.HEIGHT - (gap + GameFrame.HEIGHT / 7), COLOR); //creates bottom rectangle
+        return new RectangleComponent(GameFrame.WIDTH, gap + (int) (GameFrame.HEIGHT * (3f / 14f)), GameFrame.WIDTH / 7, GameFrame.HEIGHT - (gap + GameFrame.HEIGHT / 7), false, true); //creates bottom rectangle
     }
 
     private RectangleComponent initializeUpper(int gap) {
-        return new RectangleComponent(GameFrame.WIDTH, 0, GameFrame.WIDTH / 7, gap, COLOR); //creates top rectangle
+        return new RectangleComponent(GameFrame.WIDTH, 0, GameFrame.WIDTH / 7, gap, true, true); //creates top rectangle
     }
 
     @Override
